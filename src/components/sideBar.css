@@ -1,0 +1,63 @@
+.sideBar {
+    width: 200px;
+    padding: 10px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    background-color: white;
+}
+
+.sideBar h4{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgb(15,15,15);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+.sideBar:hover::-webkit-scrollbar-thumb {
+    background: gray;
+}
+
+.frequentlyUsedBox {
+    padding-bottom: 14px;
+}
+
+
+
+.frequentlyUsedBox,
+.histroyBox,
+.exploreBox {
+    border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+.linkBox {
+    border-radius: 10px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.linkBox:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.icon {
+    width: 25px;
+    margin-right: 22px;
+}
+
+.histroyBox,
+.exploreBox {
+    padding: 14px 0;
+}

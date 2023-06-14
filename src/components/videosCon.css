@@ -1,0 +1,79 @@
+.videos-Con {
+    padding: 30px 0;
+    padding-left: 50px;
+    padding-right: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 20px;
+}
+
+
+.thumbnail-con {
+    content: "";
+    padding-top: 54%;
+    background-color: gray;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.thumbnail-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+h3 {
+    color: rgb(15, 15, 15);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgb(96, 96, 96);
+}
+
+.about-con {
+    display: flex;
+    gap: 10px;
+
+}
+
+.channelIcon-con {
+    flex-basis: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.userIcon{
+    width: 34px;
+}
+
+.details-con {
+    flex: 1;
+}
+
+.title-con {
+    margin-bottom: 5px;
+}
+
+.channelName {
+    margin-bottom: 2px;
+    color: rgb(96, 96, 96);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tickMarckIcon {
+    width: 16px;
+}

@@ -1,0 +1,11 @@
+.quickLinks-con{
+    display: flex;
+}
+
+.quickLink{
+    background-color: rgb(233, 233, 233);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-weight: 400;
+    margin-right: 12px;
+}

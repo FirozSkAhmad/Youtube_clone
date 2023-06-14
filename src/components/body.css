@@ -1,0 +1,17 @@
+.body {
+    padding-top: 70px;
+    padding-left: 260px;
+}
+
+    
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+.body::-webkit-scrollbar-thumb {
+    background: gray;
+}
