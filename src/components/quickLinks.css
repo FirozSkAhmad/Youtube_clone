@@ -1,11 +1,75 @@
-.quickLinks-con{
-    display: flex;
+.small-carouselCon,
+.large-carouselCon {
+    position: fixed;
+    top: 60px;
+    background-color: rgb(255, 255, 255);
+    padding: 5px 50px;
+    right: 0;
+    z-index: 100;
 }
 
-.quickLink{
+.small-carouselCon {
+    left: 224px;
+
+}
+
+.large-carouselCon {
+    left: 100px;
+}
+
+.quickLinks-con {
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    justify-content: space-between;
+    scroll-behavior: smooth;
+}
+
+.quickLinks-con::-webkit-scrollbar {
+    height: 0px;
+}
+
+
+.quickLink {
     background-color: rgb(233, 233, 233);
     padding: 6px 10px;
     border-radius: 8px;
+    font-size: 14px;
     font-weight: 400;
     margin-right: 12px;
+    white-space: nowrap;
+}
+
+.rightArrow,
+.leftArrow {
+    position: absolute;
+    top: 0;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.rightArrow {
+    right: 0;
+}
+
+.leftArrow {
+    left: 0;
+}
+
+.rightArrow:hover,
+.leftArrow:hover {
+    background-color: rgb(230, 230, 230);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+@media (max-width: 767px) {
+
+    .small-carouselCon,
+    .large-carouselCon {
+        left: 0;
+    }
+
 }

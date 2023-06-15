@@ -1,10 +1,19 @@
-.videos-Con {
+.smallVideos-Con,
+.largeVideos-con {
     padding: 30px 0;
     padding-left: 50px;
     padding-right: 80px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 30px 20px;
+}
+
+.smallVideos-Con {
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.largeVideos-con {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 
@@ -53,8 +62,9 @@ h4 {
     align-items: flex-start;
 }
 
-.userIcon{
+.userIcon {
     width: 34px;
+    border-radius: 50%;
 }
 
 .details-con {
@@ -76,4 +86,13 @@ h4 {
 
 .tickMarckIcon {
     width: 16px;
+}
+
+
+@media (max-width: 767px) {
+    .smallVideos-Con,
+    .largeVideos-con {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
 }

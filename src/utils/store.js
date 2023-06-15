@@ -1,4 +1,5 @@
 import suggestionsSlice from "./suggestionsSlice";
+import toggleSlice from "./toggleSlice";
 
 const { configureStore } = require("@reduxjs/toolkit");
 
@@ -6,7 +7,8 @@ const { configureStore } = require("@reduxjs/toolkit");
 const store = configureStore(
     {
         reducer: {
-            suggestions: suggestionsSlice
+            suggestions: suggestionsSlice,
+            toggle: toggleSlice
         }
     }
 )

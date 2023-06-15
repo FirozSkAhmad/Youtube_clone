@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import hamburgerMenu from '../utils/icons/hamburger-menu.svg'
 import youtubeIcon from '../utils/icons/youtube-logo.svg'
 import searchIcon from '../utils/icons/search.svg'
@@ -9,6 +10,8 @@ import './header.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addSuggestions } from '../utils/suggestionsSlice'
+import { SUGGESTIONS_URL } from '../utils/urls'
+import { setIsVisible } from '../utils/toggleSlice'
 
 const Header = () => {
 
@@ -32,23 +35,22 @@ const Header = () => {
             setSuggestions(suggestionsInStore[search])
         }
         else {
-            const data = await fetch("http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" + search)
+            const data = await fetch(SUGGESTIONS_URL + search)
             const json = await data.json()
             setSuggestions(json[1])
             dispatch(addSuggestions({ [search]: json[1] }))
         }
     }
 
-    const searchHandler=(suggestion)=>{
-        console.log("clicked")
-        setSearch(suggestion)
+    const isVisibleHandler = () => {
+        dispatch(setIsVisible())
     }
 
     return (
         <div className='header'>
             <div className="youtubeLogo-con">
-                <img className='hamburgerMenu' alt='hamburgerMenu' src={hamburgerMenu} />
-                <img className='youtubeIcon' alt='youtubeIcon' src={youtubeIcon} />
+                <img className='hamburgerMenu' alt='hamburgerMenu' src={hamburgerMenu} onClick={isVisibleHandler} />
+                <Link className='youtubeIcon-box' to='/'><img className='youtubeIcon' alt='youtubeIcon' src={youtubeIcon} /></Link>
             </div>
             <div className="search-con">
                 <div className='parent-searchBox'>
@@ -56,22 +58,35 @@ const Header = () => {
                         onChange={(e) => setSearch(e.target.value)}
                         onFocus={() => setShowSuggestions(true)}
                         onBlur={() => setShowSuggestions(false)}
-                         />
+                    />
                     <img className='inSearchIcon' alt='inSearchIcon' src={searchIcon} />
                     {showSuggestions && suggestions.length > 2 ?
                         <div className='suggestions-con'>
-                            {suggestions.map((suggestion, ind) => <div key={ind} className='suggestion' onClick={()=>searchHandler(suggestion)}>
+                            {suggestions.map((suggestion, ind) => <div key={ind} className='suggestion'>
                                 <img className='suggSearchIcon' alt='searchIcon' src={searchIcon} />
                                 <h3>{suggestion}</h3>
                             </div>)}
                         </div> : null}
                 </div>
-                <img className='searchIcon' alt='searchIcon' src={searchIcon} />
-                <img className='voiceIcon' alt='voiceIcon' src={voiceIcon} />
+                <div className='searchIcon-box'>
+                    <img className='searchIcon' alt='searchIcon' src={searchIcon} />
+                    <h4>Search</h4>
+                </div>
+
+                <div className='voiceIcon-box'>
+                    <img className='voiceIcon' alt='voiceIcon' src={voiceIcon} />
+                    <h4>Search with voice</h4>
+                </div>
             </div>
             <div className="user-con">
-                <img className='uploadIcon' alt='uploadIcon' src={uploadIcon} />
-                <img className='notificationsIcon' alt='notificationsIcon' src={notificationsIcon} />
+                <div className='uploadIcon-box'>
+                    <img className='uploadIcon' alt='uploadIcon' src={uploadIcon} />
+                    <h4>Create</h4>
+                </div>
+                <div className='notificationsIcon-box'>
+                    <img className='notificationsIcon' alt='notificationsIcon' src={notificationsIcon} />
+                    <h4>Notifications</h4>
+                </div>
                 <img className='userIcon' alt='userIcon' src={userIcon} />
             </div>
         </div>

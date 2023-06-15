@@ -5,6 +5,7 @@ import SideBar from './components/SideBar'
 import Body from './components/Body'
 import { Provider } from 'react-redux'
 import store from './utils/store'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 
 const App = () => {
@@ -17,6 +18,14 @@ const App = () => {
     )
 }
 
+
+const appRouter = createBrowserRouter([
+    {
+        element: <App />,
+        path: '/'
+    }
+])
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-root.render(<App />)
+root.render(<RouterProvider router={appRouter} />)

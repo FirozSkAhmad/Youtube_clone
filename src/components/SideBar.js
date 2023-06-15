@@ -15,16 +15,21 @@ import newsIcon from "../utils/icons/news.svg"
 import sportsIcon from "../utils/icons/sports.svg"
 import learningIcon from "../utils/icons/learning.svg"
 import fashionIcon from "../utils/icons/fashion.svg"
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 import "./sideBar.css"
 
 const SideBar = () => {
+
+    const isVisible = useSelector(store => store.toggle.isVisible)
+
     return (
-        <div className="sideBar">
+        < div className={isVisible ? "longSideBar" : "shortSideBar"} >
             <div className="frequentlyUsedBox">
-                <div className="linkBox">
+                <Link className="linkBox">
                     <img className="icon" alt="homeIcon" src={homeIcon} />
                     <h4>Home</h4>
-                </div>
+                </Link>
                 <div className="linkBox">
                     <img className="icon" alt="shortsIcon" src={shortsIcon} />
                     <h4>Shorts</h4>
@@ -96,7 +101,7 @@ const SideBar = () => {
                     <h4>Fashion & Beauty</h4>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
